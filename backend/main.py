@@ -31,7 +31,7 @@ async def get_todo():
     response = await fetch_all_todo()
     return response
 
-@app.get("/api/todo{title}",response_model=Todo)
+@app.get("/api/todo/{title}",response_model=Todo)
 async def get_todo_by_id(title):
     response = await fetch_one_todo(title)
 
@@ -55,11 +55,11 @@ async def put_todo(title:str,desc:str):
         return response
     raise HTTPException(404,"No TODO item with {title}")
 
-@app.delete("/api/todo/{title}")
-async def del_todo(title:str):
+@app.delete("/api/todo/{id}")
+async def del_todo(id:str):
 
-    response = await delete_todo(title)
+    response = await delete_todo(id)
     if response:
         return "Sucessfully Deleted"
     
-    raise HTTPException(400,"No TODO item with {title}")
+    raise HTTPException(400,"No TODO item with {id}")

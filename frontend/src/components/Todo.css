@@ -1,0 +1,14 @@
+.todo-content{
+    font-weight:bold;
+}
+
+.remove{
+margin-left: 70%;
+margin-top: 20px;
+}
+
+.todo{
+    border-radius: 10px; 
+    background-color: rgb(228, 222, 222);
+    width:350px;
+}
